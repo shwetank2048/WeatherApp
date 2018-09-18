@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Weather Report
+  </h1>
+ 
+</div>
+
+  <div>
+    <form  #Cityform = "ngForm" (ngSubmit) = "onClickSubmit(Cityform.value)" ngNativeValidate >
+    
+      <input id="name" name="name" class="form-control"
+      required placeholder="Enter City" 
+      [ngModel]="name"  >
+
+        
+    <br/>
+    <input class="btn btn-primary" type = "submit" value = "submit" >
+ </form>
+ 
+  </div>
+
+<h4>Here is weather forecast for 5 days (every 3 hrs basis) </h4>
+<div class="table-responsive">
+<table  class="table table-bordred table-striped ">
+  <thead class="elegant-color-dark white-text">
+    <th>Date</th>
+    <th>Temp</th>
+    <th>Wind(m/sec)</th>
+    <th>Cloudiness</th>
+    <th>Humidity(%)</th>
+  </thead>
+  
+  <tbody>
+    <tr  *ngFor="let data of listArr">
+      <td>{{data.dt_txt}}</td>
+      <td>{{data.main.temp}}</td>
+      <td>{{data.wind.speed}}</td>
+      <td>{{data.weather[0].description}}</td>
+      <td>{{data.main.humidity}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
